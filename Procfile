@@ -1,1 +1,1 @@
-gunicorn hunck.wsgi 
+web:gunicorn hunck.wsgi 
