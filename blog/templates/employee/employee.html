@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+  
+  <!-- Three columns of text below the carousel -->
+  <div class="container m-2">
+    <div class="row">
+      {% for employee in employees %}
+      <div class="col-lg-4">
+        <div class="card my-3" >
+          <img class="card-img-top img-fluid" src="{{employee.image.url}}" alt="{{employee.first_name}}">
+          <div class="card-body" style="text-align: center;">
+            <h4 class="card-title">{{employee.first_name}} {{employee.last_name}}</h4>
+  
+            <ul class="user-stats">
+              <li style="list-style-type:none;" class="location"><i class="bi bi-geo-alt-fill"></i> From <b> {{employee.employee_address | truncatechars:40 }}</b></li>
+              <li style="list-style-type:none;" class="member-since"> <i class="bi bi-person-fill"></i> Member since<b> {{employee.date | date:"M/d/y"}}
+              </b></li>
+            </ul>
+            <p class="card-text">{{employee.description | truncatechars:100 }}</p>
+            <a href="/employees/{{employee.slug}}" class="btn btn-danger" target="_blank">See Profile</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+</div>
+  {% endblock content %}

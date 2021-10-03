@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+     
+      <div class="col-lg-12">
+        <div class="card my-3" >
+          <img src="{{employee.image.url}}" class="rounded mx-auto d-block img-fluid" alt="{{employee.first_name}}">
+          <div class="card-body">
+<table class="table">
+  <thead style="text-align: center;">
+    <tr>
+      <th class="table-info" colspan="2">Profile Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="table-info">Frist Name</th>
+      <td class="table-danger">{{employee.first_name}}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Last Name</th>
+      <td class="table-danger">{{employee.last_name}}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Description</th>
+      <td class="table-danger">{{employee.description | truncatechars:300 }}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Job Title</th>
+      <td class="table-danger">{{employee.job_title}}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Gender</th>
+      <td class="table-danger">{{employee.employee_gender}}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Date Of Birth</th>
+      <td class="table-danger">{{employee.date_of_birth}}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Joining Date</th>
+      <td class="table-danger">{{employee.date | date:"M/d/y"}}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Address</th>
+      <td class="table-danger">{{employee.employee_address}}</td>
+    </tr>
+    <tr>
+      <th class="table-info">Email</th>
+      <td class="table-danger"><a style="text-decoration: none;" href="mailto:{{employee.email_id}}"> {{employee.email_id}}</a> </td>
+    </tr>
+    <tr>
+      <th class="table-info">Phone</th>
+      <td class="table-danger"> <a style="text-decoration: none;" href="tel:{{employee.phone_num}}">{{employee.phone_num}}</a> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+            <!-- <h4 class="card-title">{{employee.first_name}} {{employee.last_name}}</h4> -->
+            <!-- {% for job in employee.employee_job.all %}
+            <h6>{{job.name}}</h6>
+              
+            {% endfor %} -->
+            <!-- <ul class="user-stats">
+              <li style="list-style-type:none;" class="location"><i class="bi bi-geo-alt-fill"></i> From <b> {{employee.employee_address | truncatechars:40 }}</b></li>
+              <li style="list-style-type:none;" class="member-since"> <i class="bi bi-person-fill"></i> Member since<b> {{employee.date | date:"M/d/y"}}
+              </b></li>
+            </ul>
+            <p class="card-text">{{employee.description | truncatechars:100 }}</p>
+            <a href="#" class="btn btn-danger">See Profile</a> -->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+{% endblock content %}
